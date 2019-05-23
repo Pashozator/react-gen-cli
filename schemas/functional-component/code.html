@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './{{ name }}.{{ styleExtension }}';
 
-class {{ name }} extends Component {
-    render() {
-        return (
-            <div className="{{ name.toLowerCase() }}">{{ name }} component works!</div>
-        );
-    }
+function {{ name }}(props) {
+    return (
+        <div className="{{ name.toLowerCase() }}">{{ name }} component works!</div>
+    );
 }
 
 export default {{ name }};
