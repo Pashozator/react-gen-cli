@@ -1,0 +1,9 @@
+import { shallow } from 'enzyme';
+
+describe('{{ name }}', () => {
+    it('should render', () => {
+        const component = shallow(<{{ name }} />);
+
+        expect(component.exists()).toBeTruthy();
+    });
+});
