@@ -15,8 +15,11 @@ const args = {
 		arg: process.argv[5] != null ? process.argv[5] : ''
 	},
 	functional: {
-		command: process.argv[6] != null ? process.argv[6] : '',
+		command: process.argv[6] != null ? process.argv[6] : ''
+	},
+	connected: {
+		command: process.argv[7] != null ? process.argv[7]: ''
 	}
 };
 
-shell.exec(`node --experimental-modules --no-warnings ${root}/lib/index.mjs ${args.command} ${root} ${args.name} ${args.style.command} ${args.style.arg} ${args.functional.command}`);
+shell.exec(`node --experimental-modules --no-warnings ${root}/lib/index.mjs ${args.command} ${root} ${args.name} ${args.style.command} ${args.style.arg} ${args.functional.command} ${args.connected.command}`);
