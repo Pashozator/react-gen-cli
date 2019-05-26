@@ -3,6 +3,20 @@
 
 var shell = require("shelljs");
 
+function parseArg(arg) {
+	return arg != null ? arg : '';
+}
+
+function argumentsToString(args) {
+	let output = '';
+
+	for (const arg of args) {
+		output += `${parseArg(arg)} `;
+	}
+
+	return output.trim();
+}
+
 const path = process.mainModule.filename;
 const index = path.indexOf('/bin');
 const root = path.slice(0, index);
@@ -10,16 +24,7 @@ const root = path.slice(0, index);
 const args = {
 	command: process.argv[2],
 	name: process.argv[3],
-	style: {
-		command: process.argv[4] != null ? process.argv[4] : '',
-		arg: process.argv[5] != null ? process.argv[5] : ''
-	},
-	functional: {
-		command: process.argv[6] != null ? process.argv[6] : ''
-	},
-	connected: {
-		command: process.argv[7] != null ? process.argv[7]: ''
-	}
+	flags: argumentsToString(process.argv.slice(4))
 };
 
-shell.exec(`node --experimental-modules --no-warnings ${root}/lib/index.mjs ${args.command} ${root} ${args.name} ${args.style.command} ${args.style.arg} ${args.functional.command} ${args.connected.command}`);
+shell.exec(`node --experimental-modules --no-warnings ${root}/lib/index.mjs ${args.command} ${root} ${args.name} ${args.flags}`);
