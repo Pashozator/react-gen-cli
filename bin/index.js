@@ -17,7 +17,7 @@ function argumentsToString(args) {
 	return output.trim();
 }
 
-const path = process.mainModule.filename;
+const path = process.mainModule.filename.split('\\').join('/');
 const index = path.indexOf('/bin');
 const root = path.slice(0, index);
 
