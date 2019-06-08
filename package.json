@@ -1,11 +1,9 @@
 {
   "name": "react-gen-cli",
-  "version": "1.0.0",
+  "version": "1.0.12",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "cli": "node -r esm index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "bin": {
+    "rgc": "bin/index.js"
   },
   "repository": {
     "url": "https://github.com/Pashozator/react-gen-cli"
@@ -15,9 +13,8 @@
   "dependencies": {
     "cli-color": "^1.4.0",
     "commander": "^2.20.0",
-    "esm": "^3.2.25",
     "fs-extra": "^8.0.1",
     "nunjucks": "^3.2.0",
-    "program": "^1.0.0"
+    "shelljs": "^0.8.3"
   }
 }
